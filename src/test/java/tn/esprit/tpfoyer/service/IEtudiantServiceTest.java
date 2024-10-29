@@ -34,7 +34,7 @@ class IEtudiantServiceTest {
 
         assertEquals(2, etudiants.size());
         assertEquals("John", etudiants.get(0).getNomEtudiant());
-        verify(etudiantRepository, times(1)).findAll(); // Ensure method was called once
+        verify(etudiantRepository, times(1)).findAll();
     }
     @Test
     void retrieveEtudiant() {
@@ -46,7 +46,7 @@ class IEtudiantServiceTest {
 
         assertNotNull(etudiant);
         assertEquals("John", etudiant.getNomEtudiant());
-        verify(etudiantRepository, times(1)).findById(id); // Ensure method was called once
+        verify(etudiantRepository, times(1)).findById(id);
     }
     @Test
     void addEtudiant() {
@@ -56,7 +56,7 @@ class IEtudiantServiceTest {
         Etudiant savedEtudiant = etudiantService.addEtudiant(newEtudiant);
 
         assertEquals("Jane", savedEtudiant.getNomEtudiant());
-        verify(etudiantRepository, times(1)).save(newEtudiant); // Ensure method was called once
+        verify(etudiantRepository, times(1)).save(newEtudiant);
     }
     @Test
     void modifyEtudiant() {
@@ -66,7 +66,7 @@ class IEtudiantServiceTest {
         Etudiant modifiedEtudiant = etudiantService.modifyEtudiant(existingEtudiant);
 
         assertEquals("John", modifiedEtudiant.getNomEtudiant());
-        verify(etudiantRepository, times(1)).save(existingEtudiant); // Ensure method was called once
+        verify(etudiantRepository, times(1)).save(existingEtudiant);
     }
     @Test
     void removeEtudiant() {
@@ -86,7 +86,7 @@ class IEtudiantServiceTest {
 
         assertNotNull(etudiant);
         assertEquals("John", etudiant.getNomEtudiant());
-        verify(etudiantRepository, times(1)).findEtudiantByCinEtudiant(cin); // Ensure method was called once
+        verify(etudiantRepository, times(1)).findEtudiantByCinEtudiant(cin);
     }
 
 }
