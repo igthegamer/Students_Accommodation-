@@ -21,8 +21,7 @@
               smtpPort="587"
               smtpProtocol="smtp"
               smtpUsername="ihebgara123456789"
-              smtpPassword="fzjm lmez ueku envj
-"
+
               bufferSize="1"
         >
             <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
