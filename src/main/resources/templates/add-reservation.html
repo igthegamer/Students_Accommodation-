@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Reservation</title>
+</head>
+<body>
+<h2>Create a Reservation</h2>
+<form action="#" th:action="@{/reservation/reserve-and-pay}" th:object="${reservation}" method="post">
+  <label for="idReservation">Reservation ID:</label>
+  <input type="text" id="idReservation" name="idReservation" required/><br/>
+
+  <label for="anneeUniversitaire">Date:</label>
+  <input type="date" id="anneeUniversitaire" name="anneeUniversitaire" required/><br/>
+
+  <label for="estValide">Valid:</label>
+  <input type="checkbox" id="estValide" name="estValide"/><br/>
+
+  <button type="submit">Submit and Pay</button>
+</form>
+</body>
+</html>

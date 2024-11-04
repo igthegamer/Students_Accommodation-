@@ -2,6 +2,7 @@ package tn.esprit.tpfoyer.service;
 
 import tn.esprit.tpfoyer.entity.Reservation;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,9 @@ public interface IReservationService {
     public void removeReservation(String reservationId);
     public Reservation modifyReservation(Reservation reservation);
 
-    // Here we will add later methods calling keywords and methods calling JPQL
-    public List<Reservation> trouverResSelonDateEtStatus(Date d, boolean b);
+    public List<Reservation> trouverResSelonDateEtStatus(LocalDate d, boolean b);
+    public List<Reservation> findReservationsByPaymentStatus(boolean hasPaid);
+
+    public Reservation updatePaymentStatus(String reservationId, boolean hasPaid);
+
 }

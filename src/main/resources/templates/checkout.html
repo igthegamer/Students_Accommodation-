@@ -1,0 +1,36 @@
+<form action="/tpfoyer/checkout" method="POST" id="checkout-form">
+  <label for="amount">Enter amount:</label>
+  <input type="number" name="amount" id="amount" required min="1" />
+  <input type="number" name="reservationId" id="reservationId"  />
+
+  <label for="currency">Select currency:</label>
+  <select name="currency" id="currency">
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+  </select>
+
+
+  <button type="submit">Proceed to Payment</button>
+</form>
+
+
+<form action='/tpfoyer/charge' method='POST' id='payment-form'>
+  <input type='hidden' th:value='${amount}' name='amount' />
+  <input type="hidden" th:value="${currency}" name="currency" />
+  <input type='hidden' th:value='${reservationId}' name='reservationId' />
+  <p>Public Key: [[${stripePublicKey}]]</p>
+  <p>Amount: [[${amount}]]</p>
+  <p>Currency: [[${currency}]]</p>
+  <script
+          src='https://checkout.stripe.com/checkout.js'
+          class='stripe-button'
+          th:attr='data-key=${stripePublicKey},
+                   data-amount=${amount},
+                   data-currency=${currency}'
+          data-name='Custom Payment'
+          data-description='User-defined checkout'
+          data-locale='auto'
+          data-zip-code='false'>
+  </script>
+</form>
+

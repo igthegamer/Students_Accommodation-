@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Reservation List</title>
+</head>
+<body>
+<h2>Reservations</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Valid</th>
+    <th>Paid</th>
+  </tr>
+  <tr th:each="reservation : ${reservations}">
+    <td th:text="${reservation.idReservation}"></td>
+    <td th:text="${#dates.format(reservation.anneeUniversitaire, 'yyyy-MM-dd')}"></td>
+    <td th:text="${reservation.estValide}"></td>
+    <td th:text="${reservation.hasPaid}"></td>
+  </tr>
+</table>
+</body>
+</html>
